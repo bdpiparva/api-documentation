@@ -1,0 +1,13 @@
+title: API Documentation
+description: >-
+  GoCD API documentation.
+github_username:  bdpiparva
+
+
+markdown: kramdown
+theme: minima
+
+exclude:
+   - vendor/
+   - .idea
+   - bin/

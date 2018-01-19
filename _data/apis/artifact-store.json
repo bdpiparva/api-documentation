@@ -1,0 +1,251 @@
+{
+	"info": {
+		"name": "Artifact Store",
+		"_postman_id": "734b4085-0029-8c82-53cf-e7588238d423",
+		"description": "# Introduction\nThis is artifact store API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get a artifact store",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"artifact_stores",
+						"test"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all artifact stores",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"artifact_stores"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create artifact store",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"test\",\n  \"plugin_id\": \"cd.go.artifact.docker\",\n  \"properties\": [\n    {\n      \"key\": \"RegistryURL\",\n      \"value\": \"localhost:5000\"\n    },\n    {\n      \"key\": \"AuthenticationType\",\n      \"value\": \"username_password\"\n    },\n    {\n      \"key\": \"Username\",\n      \"value\": \"admin\"\n    },\n    {\n      \"key\": \"Password\",\n      \"encrypted_value\": \"EUVKtwQZKnFMhkoxdgK/7A==\"\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"artifact_stores"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update artifact store",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					},
+					{
+						"key": "If-Match",
+						"value": "\"558a860c92f631ba27ab50db2fe8a6d1--gzip\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"test\",\n  \"plugin_id\": \"cd.go.artifact.docker\",\n  \"properties\": [\n    {\n      \"key\": \"RegistryURL\",\n      \"value\": \"localhost:5000\"\n    },\n    {\n      \"key\": \"AuthenticationType\",\n      \"value\": \"username_password\"\n    },\n    {\n      \"key\": \"Username\",\n      \"value\": \"admin123\"\n    },\n    {\n      \"key\": \"Password\",\n      \"value\": \"admin123\"\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"artifact_stores",
+						"test"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a artifact store",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"artifact_stores",
+						"test"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "badger",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	}
+}

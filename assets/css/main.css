@@ -1,0 +1,256 @@
+/*
+ * Copyright 2018 ThoughtWorks, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+    height:     calc(100vh - 18px);
+    background: #FAFAFA;
+}
+
+footer {
+    color:      #D8D8D8;
+    padding:    5px;
+    background: #2D2D2D;
+}
+
+.navbar {
+    color:         #fff;
+    background:    #33364E;
+    border-bottom: 3px solid #212121;
+}
+
+.page-content {
+    top:      55px;
+    padding:  0px;
+    height:   calc(100vh - 72px);
+    position: absolute;
+}
+
+.page-content .content {
+    margin: 0px;
+}
+
+.api-index {
+    top:        55px;
+    height:     calc(100vh - 72px);
+    position:   sticky;
+    background: #F7F7F7;
+    overflow-y: auto;
+}
+
+.api-info {
+    padding: 0px;
+}
+
+.about-api {
+    padding:       15px 20px;
+    border-bottom: 1px solid #DDD;
+}
+
+.api-info .row {
+    margin: 0px;
+}
+
+.heading {
+    border-radius:    3px;
+    background-color: #ededed;
+}
+
+.heading a {
+    color:           #282828;
+    margin:          20px 10px 0px 0px;
+    padding:         6px 0px 6px 6px;
+    display:         block;
+    font-size:       12px;
+    word-break:      break-all;
+    font-weight:     bold;
+    text-transform:  uppercase;
+    text-decoration: none;
+}
+
+ul.requests {
+    padding:         0px 0px 0px 15px;
+    list-style-type: none;
+}
+
+ul.requests li span.method {
+    width:          35px;
+    display:        inline-block;
+    font-size:      9px;
+    text-align:     right;
+    font-weight:    700;
+    line-height:    1.1;
+    text-transform: uppercase;
+}
+
+ul.requests li span.request-name {
+    color:         #323232;
+    font-size:     12px;
+    max-width:     230px;
+    min-width:     250px;
+    overflow:      hidden;
+    word-break:    break-all;
+    font-weight:   400;
+    padding-left:  10px;
+    margin-right:  10px;
+    text-overflow: ellipsis;
+}
+
+span.request-name a {
+    color: #323232;
+}
+
+span.method[name="GET"] {
+    color: #00C853;
+}
+
+span.method[name="POST"] {
+    color: #FF9800;
+}
+
+span.method[name="PUT"] {
+    color: #0091EA;
+}
+
+span.method[name="DELETE"] {
+    color: #F44336;
+}
+
+.request {
+    margin-bottom: 20px;
+}
+
+.request-info {
+    padding:       1rem;
+    border-bottom: 1px solid #ececec;
+}
+
+.request-info .title {
+    font-size:     16px;
+    margin-bottom: 15px;
+}
+
+.request-info .title .method {
+    font-size:      14px;
+    margin-right:   10px;
+    text-transform: uppercase;
+}
+
+.request-info .url {
+    border:           1px solid #e6e6e6;
+    padding:          6px 10px;
+    font-size:        12px;
+    word-break:       break-all;
+    border-radius:    3px;
+    margin-bottom:    15px;
+    background-color: #f8f8f8;
+}
+
+.request-info .headers .title, .request-info .body .title {
+    color:       #323232;
+    height:      20px;
+    margin:      0px;
+    font-size:   12px;
+    font-weight: normal;
+}
+
+.request-info .headers table th, .request-info .headers table td {
+    padding:   5px .75rem;
+    font-size: 12px;
+}
+
+.request-info .body .content {
+    border:        1px solid #e6e6e6;
+    padding:       5px;
+    font-size:     13px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.request-info .body .content .highlight {
+    margin:     0px;
+    overflow:   auto;
+    max-height: 300px;
+    background: #FAFAFA;
+}
+
+.request-info .body .content .highlight pre {
+    margin: 0px;
+}
+
+.request-example {
+    color:         #fff;
+    padding:       1rem;
+    background:    #303030;
+    border-bottom: 1px solid #505050;
+}
+
+.request-example .card {
+    border: 1px solid #505050;
+}
+
+.request-example .card .card-header {
+    padding:       0px;
+    background:    #454545;
+    border-bottom: 1px solid #505050;
+}
+
+.request-example .card {
+    font-size:   13px;
+    background:  #272822;
+    font-family: "Courier New", Courier, "Andale Mono", "Monaco";
+}
+
+.request-example .card .card-body {
+    padding: 1em;
+
+}
+
+.request-example .card-header-tabs {
+    margin: 0px 0px 0px 20px;
+}
+
+.request-example .card-header-tabs .nav-item {
+    margin-top: 5px;
+}
+
+.request-example .card-header-tabs .nav-item .nav-link {
+    color:            #fff;
+    padding:          5px 10px;
+    text-transform:   uppercase;
+    background-color: transparent;
+}
+
+.request-example .card-header-tabs .nav-item .nav-link.active,
+.request-example .card-header-tabs .nav-item .nav-link.active:hover {
+    background:   #272822;
+    border-color: #505050 #505050 #272822;
+}
+
+.request-example .card-header-tabs .nav-item .nav-link:focus {
+    border-color: transparent;
+}
+
+.request-example .card-header-tabs .nav-item .nav-link:hover {
+    border-color: #505050 #505050 #505050;
+}
+
+.request-example pre {
+    color: #fff;
+}
+
+.request-example pre .s2 {
+    color: #8BC34A;
+}

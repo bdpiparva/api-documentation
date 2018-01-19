@@ -1,0 +1,388 @@
+{
+	"info": {
+		"name": "Roles",
+		"_postman_id": "6eeb8b3e-64fc-83ee-1916-eb2ba1fb1dd7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all roles",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/security/roles",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"security",
+						"roles"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all gocd roles",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/security/roles?type=gocd",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"security",
+						"roles"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "gocd",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all plugin roles",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/security/roles?type=plugin",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"security",
+						"roles"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "plugin",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get a gocd role",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/security/roles/test",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"security",
+						"roles",
+						"test"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create a gocd role",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test\",\n    \"type\": \"gocd\",\n    \"attributes\": {\n        \"users\": [\"bob\"]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/security/roles",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"security",
+						"roles"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create a plugin role",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test-plugin\",\n    \"type\": \"plugin\",\n    \"attributes\": {\n      \"auth_config_id\": \"GitHub\",\n      \"properties\": [\n        {\n          \"key\": \"Organizations\"\n        },\n        {\n          \"key\": \"Teams\",\n          \"value\": \"gocd:Web Team\"\n        },\n        {\n          \"key\": \"Users\"\n        }\n      ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/security/roles",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"security",
+						"roles"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update a role",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "If-Match",
+						"value": "\"ad4fadcb3a52a7491cc38b49129d60e5\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test\",\n    \"type\": \"gocd\",\n    \"attributes\": {\n      \"users\" : [\"bob\",\"alice\"]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/security/roles/test",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"security",
+						"roles",
+						"test"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a role",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{PASSWORD}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{USERNAME}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.go.cd.v1+json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{GO_SERVER_URL}}/api/admin/security/roles/test",
+					"host": [
+						"{{GO_SERVER_URL}}"
+					],
+					"path": [
+						"api",
+						"admin",
+						"security",
+						"roles",
+						"test"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
