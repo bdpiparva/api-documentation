@@ -254,3 +254,23 @@ span.method[name="DELETE"] {
 .request-example pre .s2 {
     color: #8BC34A;
 }
+
+@media (max-width: 61.9em) {
+    .api-index {
+        display: none;
+    }
+
+    .api-info .col-6 {
+        max-width:    100%;
+        width:        100%;
+        padding-left: 0;
+        flex:         auto;
+    }
+
+    .api-info {
+        flex:      auto;
+        width:     100%;
+        padding:   0px;
+        max-width: 100%;
+    }
+}
