@@ -24,9 +24,9 @@ const Search = function (searchField, dropdownMenu) {
 
 		$.ajax({
 			type: 'GET',
-			url: '/all_api.json'
+			url: 'apis'
 		}).done(function (result) {
-			data = filter(result);
+			data = filter(JSON.parse(result));
 		});
 	};
 

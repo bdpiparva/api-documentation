@@ -1,7 +1,0 @@
----
----
-{{
-  site.data.apis
-  |
-  jsonify
-}}

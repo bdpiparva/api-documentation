@@ -1,0 +1,4 @@
+---
+permalink: /apis
+---
+{{site.data.apis|jsonify}}
