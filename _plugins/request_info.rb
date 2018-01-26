@@ -19,3 +19,9 @@ module Jekyll
 end
 
 Liquid::Template.register_tag('request_info', Jekyll::RequestInfoTag)
+
+Jekyll::Hooks.register :site, :after_init do |site|
+
+  p site.data
+
+end

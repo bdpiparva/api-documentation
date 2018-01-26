@@ -152,7 +152,6 @@ layout: default
 			}, 1000);
 		});
 
-		const requestInfo = JSON.parse('{% request_info %}');
-		new Search("#search", ".request-search-dropdown", requestInfo).init();
+		new Search("#search", ".request-search-dropdown").init();
 	})(jQuery, window);
 </script>

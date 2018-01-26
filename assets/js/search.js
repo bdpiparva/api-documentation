@@ -14,12 +14,32 @@
  * limitations under the License.
  */
 
-const Search = function (searchField, dropdownMenu, data) {
+const Search = function (searchField, dropdownMenu) {
 	const searchObj = this;
+	let data = null;
 	searchObj.init = function () {
 		$(searchField).keyup(function () {
 			searchRequest($(this).val());
 		});
+
+		$.ajax({
+			type: 'GET',
+			url: '/all_api.json'
+		}).done(function (result) {
+			data = filter(result);
+		});
+	};
+
+	const filter = function (result) {
+		const requestInfo = [];
+		for (var key in result) {
+			const items = result[key].item;
+			for (var i in items) {
+				const item = items[i];
+				requestInfo.push({"name": item.name, "method": item.request.method});
+			}
+		}
+		return requestInfo;
 	};
 
 	const searchRequest = function (queryStr) {
