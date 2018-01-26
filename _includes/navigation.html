@@ -15,18 +15,26 @@
   -->
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-    <a class="navbar-brand" href="#">
-        <img src="{{ '/assets/images/gocd-white.png' | relative_url }}" height="30" class="d-inline-block align-top"
-             alt="">
-        {{site.title}}
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+	<a class="navbar-brand" href="#">
+		<img src="{{ '/assets/images/gocd-white.png' | relative_url }}" height="30" class="d-inline-block align-top"
+				 alt="">
+		{{site.title}}
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+					aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-        </ul>
-    </div>
+	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+		<ul class="navbar-nav mr-auto">
+		</ul>
+		<form class="form-inline my-2 my-lg-0 col-4">
+			<div class="dropdown" style="width: 100%">
+				<input class="form-control mr-sm-2 dropdown-toggle" type="text" placeholder="Search"
+							 aria-label="Search" data-toggle="dropdown"
+							 aria-haspopup="true" aria-expanded="false" id="search" autocomplete="off" style="width: 100%"/>
+				<div class="dropdown-menu request-search-dropdown" aria-labelledby="search"></div>
+			</div>
+		</form>
+	</div>
 </nav>

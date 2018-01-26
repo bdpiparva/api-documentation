@@ -57,6 +57,12 @@ layout: default
 				<div class="url">
 					<code class="highlighter-rouge">{{ item.request.url.path | join: '/' }}</code>
 				</div>
+				{% if item.request.description != '' %}
+				<div>
+					{{item.request.description | markdownify}}
+				</div>
+				{% endif %}
+
 				<div class="headers">
 					<div class="title">HEADERS</div>
 					<table class="table table-bordered">
@@ -120,30 +126,33 @@ layout: default
 </div>
 
 <script type="application/javascript">
-    (function ($, window) {
-        const adjustAnchor = function () {
-            var $anchor = $(':target'),
-                fixedElementHeight = 55;
-            if ($anchor.length > 0) {
-                window.scrollTo(0, $anchor.offset().top - fixedElementHeight);
-            }
-        };
-        $(window).on('hashchange load', function () {
-            adjustAnchor();
-        });
+	(function ($, window) {
+		const adjustAnchor = function () {
+			var $anchor = $(':target'),
+				fixedElementHeight = 55;
+			if ($anchor.length > 0) {
+				window.scrollTo(0, $anchor.offset().top - fixedElementHeight);
+			}
+		};
+		$(window).on('hashchange load', function () {
+			adjustAnchor();
+		});
 
-        $('.copy-request').tooltip({trigger: "manual"});
-        const clipboard = new Clipboard('.copy-request', {
-            text: function (trigger) {
-                return $(trigger).prev().text().trim();
-            }
-        });
+		$('.copy-request').tooltip({trigger: "manual"});
+		const clipboard = new Clipboard('.copy-request', {
+			text: function (trigger) {
+				return $(trigger).prev().text().trim();
+			}
+		});
 
-        clipboard.on('success', function (e) {
-            $(e.trigger).tooltip('show');
-            setTimeout(function () {
-                $(e.trigger).tooltip('hide');
-            }, 1000);
-        });
-    })(jQuery, window);
+		clipboard.on('success', function (e) {
+			$(e.trigger).tooltip('show');
+			setTimeout(function () {
+				$(e.trigger).tooltip('hide');
+			}, 1000);
+		});
+
+		const requestInfo = JSON.parse('{% request_info %}');
+		new Search("#search", ".request-search-dropdown", requestInfo).init();
+	})(jQuery, window);
 </script>

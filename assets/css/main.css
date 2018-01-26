@@ -275,6 +275,27 @@ span.method[name="DELETE"] {
     background: #404040;
 }
 
+.dropdown-item .method {
+    width:        41px;
+    display:      inline-block;
+    font-size:    11px;
+    margin-right: 10px;
+
+}
+
+.dropdown-item .request-name {
+    font-size: 13px;
+}
+
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+img {
+    max-width: 100%;
+}
+
 @media (max-width: 61.9em) {
     .api-index {
         display: none;
@@ -292,7 +313,7 @@ span.method[name="DELETE"] {
         max-width: 100%;
     }
 
-    .about-api img {
+    .about-api img, .request-info img {
         padding:   0px;
         max-width: 100%;
     }
