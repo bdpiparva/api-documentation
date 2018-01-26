@@ -1,251 +1,273 @@
 {
-	"info": {
-		"name": "Artifact Store",
-		"_postman_id": "734b4085-0029-8c82-53cf-e7588238d423",
-		"description": "# Introduction\nThis is artifact store API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Get a artifact store",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{PASSWORD}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{USERNAME}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/vnd.go.cd.v1+json"
-					}
-				],
-				"body": {},
-				"url": {
-					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
-					"host": [
-						"{{GO_SERVER_URL}}"
-					],
-					"path": [
-						"api",
-						"admin",
-						"artifact_stores",
-						"test"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Get all artifact stores",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{PASSWORD}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{USERNAME}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/vnd.go.cd.v1+json"
-					}
-				],
-				"body": {},
-				"url": {
-					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores",
-					"host": [
-						"{{GO_SERVER_URL}}"
-					],
-					"path": [
-						"api",
-						"admin",
-						"artifact_stores"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Create artifact store",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{PASSWORD}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{USERNAME}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Accept",
-						"value": "application/vnd.go.cd.v1+json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"id\": \"test\",\n  \"plugin_id\": \"cd.go.artifact.docker\",\n  \"properties\": [\n    {\n      \"key\": \"RegistryURL\",\n      \"value\": \"localhost:5000\"\n    },\n    {\n      \"key\": \"AuthenticationType\",\n      \"value\": \"username_password\"\n    },\n    {\n      \"key\": \"Username\",\n      \"value\": \"admin\"\n    },\n    {\n      \"key\": \"Password\",\n      \"encrypted_value\": \"EUVKtwQZKnFMhkoxdgK/7A==\"\n    }\n  ]\n}"
-				},
-				"url": {
-					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores",
-					"host": [
-						"{{GO_SERVER_URL}}"
-					],
-					"path": [
-						"api",
-						"admin",
-						"artifact_stores"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Update artifact store",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{PASSWORD}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{USERNAME}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Accept",
-						"value": "application/vnd.go.cd.v1+json"
-					},
-					{
-						"key": "If-Match",
-						"value": "\"558a860c92f631ba27ab50db2fe8a6d1--gzip\""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"id\": \"test\",\n  \"plugin_id\": \"cd.go.artifact.docker\",\n  \"properties\": [\n    {\n      \"key\": \"RegistryURL\",\n      \"value\": \"localhost:5000\"\n    },\n    {\n      \"key\": \"AuthenticationType\",\n      \"value\": \"username_password\"\n    },\n    {\n      \"key\": \"Username\",\n      \"value\": \"admin123\"\n    },\n    {\n      \"key\": \"Password\",\n      \"value\": \"admin123\"\n    }\n  ]\n}"
-				},
-				"url": {
-					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
-					"host": [
-						"{{GO_SERVER_URL}}"
-					],
-					"path": [
-						"api",
-						"admin",
-						"artifact_stores",
-						"test"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Delete a artifact store",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "{{PASSWORD}}",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "{{USERNAME}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/vnd.go.cd.v1+json"
-					}
-				],
-				"body": {},
-				"url": {
-					"raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
-					"host": [
-						"{{GO_SERVER_URL}}"
-					],
-					"path": [
-						"api",
-						"admin",
-						"artifact_stores",
-						"test"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		}
-	],
-	"auth": {
-		"type": "basic",
-		"basic": [
-			{
-				"key": "password",
-				"value": "badger",
-				"type": "string"
-			},
-			{
-				"key": "username",
-				"value": "admin",
-				"type": "string"
-			}
-		]
-	}
+  "info": {
+    "name": "Artifact Store",
+    "_postman_id": "734b4085-0029-8c82-53cf-e7588238d423",
+    "description": "# Introduction\n\nThis is artifact store API. This is a global configuration for to artifactory authentication related information.\n\n## Image\n\n![m'lady](http://i.imgur.com/v8IVDka.jpg)\n\n---\n\n## List\n\n* Milk\n* Bread\n    * Wholegrain\n* Butter\n* \n\n---\n\n## Ordered list\n\n1. Tidy the kitchen\n2. Prepare ingredients\n3. Cook delicious things\n\n\n## Blockquote\n\n> To be or not to be, that is the question.\n\n\n## Headers\n\n# Header 1\n## Header 2\n### Header 3\n#### Header 4\n##### Header 5\n\n## Table\n\n| Tables        | Are           | Cool  |\n| ------------- |:-------------:| -----:|\n| col 3 is      | right-aligned | $1600 |\n| col 2 is      | centered      |   $12 |\n| zebra stripes | are neat      |    $1 |\n\n\n## Emphasis\n\nEmphasis, aka italics, with *asterisks* or _underscores_.\n\nStrong emphasis, aka bold, with **asterisks** or __underscores__.\n\nCombined emphasis with **asterisks and _underscores_**.\n\nStrikethrough uses two tildes. ~~Scratch this.~~\n\n## Links\n\n[I'm an inline-style link](https://www.google.com)\n\n[I'm an inline-style link with title](https://www.google.com \"Google's Homepage\")\n\n[I'm a reference-style link][Arbitrary case-insensitive reference text]\n\n[I'm a relative reference to a repository file](../blob/master/LICENSE)\n\n[You can use numbers for reference-style link definitions][1]\n\nOr leave it empty and use the [link text itself].\n\nURLs and URLs in angle brackets will automatically get turned into links. \nhttp://www.example.com or <http://www.example.com> and sometimes \nexample.com (but not on Github, for example).\n\nSome text to show that the reference links can follow later.\n\n[arbitrary case-insensitive reference text]: https://www.mozilla.org\n[1]: http://slashdot.org\n[link text itself]: http://www.reddit.com\n\n\n## Inline code\n\nInline `code` has `back-ticks around` it.\n\n## Code block\n\n```javascript\nvar s = \"JavaScript syntax highlighting\";\nalert(s);\n```\n \n```python\ns = \"Python syntax highlighting\"\nprint s\n```\n \n```\nNo language indicated, so no syntax highlighting. \nBut let's throw in a <b>tag</b>.\n```\n\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get a artifact store",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{PASSWORD}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{USERNAME}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.go.cd.v1+json"
+          }
+        ],
+        "body": {},
+        "url": {
+          "raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
+          "host": [
+            "{{GO_SERVER_URL}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "artifact_stores",
+            "test"
+          ]
+        },
+        "description": "Get a artifact store with specified id in path param\n\n\n# Introduction\n\nThis is artifact store API. This is a global configuration for to artifactory authentication related information.\n\n## Image\n\n![m'lady](http://i.imgur.com/v8IVDka.jpg)\n\n---\n\n## List\n\n* Milk\n* Bread\n    * Wholegrain\n* Butter\n* \n\n---\n\n## Ordered list\n\n1. Tidy the kitchen\n2. Prepare ingredients\n3. Cook delicious things\n\n\n## Blockquote\n\n> To be or not to be, that is the question.\n\n\n## Headers\n\n# Header 1\n## Header 2\n### Header 3\n#### Header 4\n##### Header 5\n\n## Table\n\n| Tables        | Are           | Cool  |\n| ------------- |:-------------:| -----:|\n| col 3 is      | right-aligned | $1600 |\n| col 2 is      | centered      |   $12 |\n| zebra stripes | are neat      |    $1 |\n\n\n## Emphasis\n\nEmphasis, aka italics, with *asterisks* or _underscores_.\n\nStrong emphasis, aka bold, with **asterisks** or __underscores__.\n\nCombined emphasis with **asterisks and _underscores_**.\n\nStrikethrough uses two tildes. ~~Scratch this.~~\n\n## Links\n\n[I'm an inline-style link](https://www.google.com)\n\n[I'm an inline-style link with title](https://www.google.com \"Google's Homepage\")\n\n[I'm a reference-style link][Arbitrary case-insensitive reference text]\n\n[I'm a relative reference to a repository file](../blob/master/LICENSE)\n\n[You can use numbers for reference-style link definitions][1]\n\nOr leave it empty and use the [link text itself].\n\nURLs and URLs in angle brackets will automatically get turned into links. \nhttp://www.example.com or <http://www.example.com> and sometimes \nexample.com (but not on Github, for example).\n\nSome text to show that the reference links can follow later.\n\n[arbitrary case-insensitive reference text]: https://www.mozilla.org\n[1]: http://slashdot.org\n[link text itself]: http://www.reddit.com\n\n\n## Inline code\n\nInline `code` has `back-ticks around` it.\n\n## Code block\n\n```javascript\nvar s = \"JavaScript syntax highlighting\";\nalert(s);\n```\n \n```python\ns = \"Python syntax highlighting\"\nprint s\n```\n \n```\nNo language indicated, so no syntax highlighting. \nBut let's throw in a <b>tag</b>.\n```\n\n"
+      },
+      "response": []
+    },
+    {
+      "name": "Get all artifact stores",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{PASSWORD}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{USERNAME}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.go.cd.v1+json"
+          }
+        ],
+        "body": {},
+        "url": {
+          "raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores",
+          "host": [
+            "{{GO_SERVER_URL}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "artifact_stores"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "Create artifact store",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{PASSWORD}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{USERNAME}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/vnd.go.cd.v1+json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"test\",\n  \"plugin_id\": \"cd.go.artifact.docker\",\n  \"properties\": [\n    {\n      \"key\": \"RegistryURL\",\n      \"value\": \"localhost:5000\"\n    },\n    {\n      \"key\": \"AuthenticationType\",\n      \"value\": \"username_password\"\n    },\n    {\n      \"key\": \"Username\",\n      \"value\": \"admin\"\n    },\n    {\n      \"key\": \"Password\",\n      \"encrypted_value\": \"EUVKtwQZKnFMhkoxdgK/7A==\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores",
+          "host": [
+            "{{GO_SERVER_URL}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "artifact_stores"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "Update artifact store",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{PASSWORD}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{USERNAME}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/vnd.go.cd.v1+json"
+          },
+          {
+            "key": "If-Match",
+            "value": "\"558a860c92f631ba27ab50db2fe8a6d1--gzip\""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"test\",\n  \"plugin_id\": \"cd.go.artifact.docker\",\n  \"properties\": [\n    {\n      \"key\": \"RegistryURL\",\n      \"value\": \"localhost:5000\"\n    },\n    {\n      \"key\": \"AuthenticationType\",\n      \"value\": \"username_password\"\n    },\n    {\n      \"key\": \"Username\",\n      \"value\": \"admin123\"\n    },\n    {\n      \"key\": \"Password\",\n      \"value\": \"admin123\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
+          "host": [
+            "{{GO_SERVER_URL}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "artifact_stores",
+            "test"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "Delete a artifact store",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{PASSWORD}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{USERNAME}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/vnd.go.cd.v1+json"
+          }
+        ],
+        "body": {},
+        "url": {
+          "raw": "{{GO_SERVER_URL}}/api/admin/artifact_stores/test",
+          "host": [
+            "{{GO_SERVER_URL}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "artifact_stores",
+            "test"
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "badger",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "admin",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "821a821b-1612-4fe5-899c-97b408d24cf9",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "9aeb87a7-b790-4128-89ed-3513d74e29b9",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
 }

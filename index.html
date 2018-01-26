@@ -17,98 +17,106 @@ layout: default
   ~ limitations under the License.
   -->
 <div class="row">
-    <div class="col col-2 api-index">
-        {% for api_hash in site.data.apis %}
-        {% assign api = api_hash[1] %}
-        {% assign id = api.info.name | downcase | replace:' ','-' %}
-        <div class="heading">
-            <a href="#introduction-{{id}}">{{ api.info.name }}</a>
-        </div>
-        <ul class="requests">
-            {% for item in api.item %}
-            <li>
-                <span class="method" name="{{item.request.method}}">{{item.request.method}}</span>
-                <span class="request-name">
-                    <a href="#{{item.name | downcase | replace:' ','-'}}">{{item.name}}</a>
-                </span>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endfor %}
-    </div>
+	<div class="col col-2 api-index">
+		{% for api_hash in site.data.apis %}
+		{% assign api = api_hash[1] %}
+		{% assign id = api.info.name | downcase | replace:' ','-' %}
+		<div class="heading">
+			<a href="#introduction-{{id}}">{{ api.info.name }}</a>
+		</div>
+		<ul class="requests">
+			{% for item in api.item %}
+			<li>
+				<span class="method" name="{{item.request.method}}">{{item.request.method}}</span>
+				<span class="request-name">
+					<a href="#{{item.name | downcase | replace:' ','-'}}">{{item.name}}</a>
+				</span>
+			</li>
+			{% endfor %}
+		</ul>
+		{% endfor %}
+	</div>
 
-    <div class="col col-10 api-info">
-        {% for api_hash in site.data.apis %}
-        {% assign api = api_hash[1] %}
-        {% assign id = api.info.name | downcase | replace:' ','-' %}
-        {% if api.info.description != '' %}
-        <div class="about-api" id="introduction-{{id}}">
-            {{api.info.description | markdownify}}
-        </div>
-        {% endif %}
+	<div class="col col-10 api-info">
+		{% for api_hash in site.data.apis %}
+		{% assign api = api_hash[1] %}
+		{% assign apiId = api.info.name | downcase | replace:' ','-' %}
+		{% if api.info.description != '' %}
+		<div class="about-api" id="introduction-{{apiId}}">
+			{{api.info.description | markdownify}}
+		</div>
+		{% endif %}
 
-        {% for item in api.item %}
-        <div class="row request">
-            <div class="request-info col col-6" id="{{item.name | downcase | replace:' ','-'}}">
-                <div class="title">
-                    <span class="method" name="{{item.request.method}}">{{item.request.method}}</span>{{item.name}}
-                </div>
-                <div class="url">
-                    <code class="highlighter-rouge">{{ item.request.url.path | join: '/' }}</code>
-                </div>
-                <div class="headers">
-                    <div class="title">HEADERS</div>
-                    <table class="table table-bordered">
-                        {% for header in item.request.header %}
-                        <tr>
-                            <th>{{header.key}}</th>
-                            <td>{{header.value}}</td>
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </div>
+		{% for item in api.item %}
+		{% assign requestId = item.name | downcase | replace:' ','-' %}
+		<div class="row request">
+			<div class="request-info col col-6" id="{{requestId}}">
+				<div class="title">
+					<span class="method" name="{{item.request.method}}">{{item.request.method}}</span>{{item.name}}
+				</div>
+				<div class="url">
+					<code class="highlighter-rouge">{{ item.request.url.path | join: '/' }}</code>
+				</div>
+				<div class="headers">
+					<div class="title">HEADERS</div>
+					<table class="table table-bordered">
+						{% for header in item.request.header %}
+						<tr>
+							<th>{{header.key}}</th>
+							<td>{{header.value}}</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
 
-                {% if item.request.body.raw != null %}
-                <div class="body">
-                    <div class="title">BODY</div>
-                    <div class="content">{% highlight json %}{{item.request.body.raw}}{% endhighlight %}</div>
-                </div>
-                {% endif %}
-            </div>
-            <div class="col col-6 request-example">
-                <div class="card text-white">
-                    <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="curl-tab-{{item.name | downcase | replace:' ','-'}}"
-                                   data-toggle="tab" href="#curl-{{item.name | downcase | replace:' ','-'}}"
-                                   role="tab">curl</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="http-tab-{{item.name | downcase | replace:' ','-'}}"
-                                   data-toggle="tab" href="#http-{{item.name | downcase | replace:' ','-'}}"
-                                   role="tab">jquery</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-body tab-content">
-                        <div class="tab-pane show active" id="curl-{{item.name | downcase | replace:' ','-'}}"
-                             role="tabpanel"
-                             aria-labelledby="curl-tab-{{item.name | downcase | replace:' ','-'}}">
-                            {% include curl.md %}
-                        </div>
+				{% if item.request.body.raw != null %}
+				<div class="body">
+					<div class="title">BODY</div>
+					<div class="content">{% highlight json %}{{item.request.body.raw}}{% endhighlight %}</div>
+				</div>
+				{% endif %}
+			</div>
+			<div class="col col-6 request-example">
+				<div class="card text-white">
+					<div class="card-header">
+						<ul class="nav nav-tabs card-header-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="curl-tab-{{requestId}}"
+									 data-toggle="tab" href="#curl-{{requestId}}"
+									 role="tab">curl</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="jquery-tab-{{requestId}}"
+									 data-toggle="tab" href="#jquery-{{requestId}}"
+									 role="tab">jquery</a>
+							</li>
+						</ul>
+					</div>
+					<div class="card-body tab-content">
+						<div class="tab-pane show active" id="curl-{{requestId}}"
+								 role="tabpanel"
+								 aria-labelledby="curl-tab-{{requestId}}">
+							{% include curl.md %}
+							<button class="btn btn-sm copy-request" data-placement="left" data-target="curl-{{requestId}}"
+											title="Copied!">Copy to Clipboard
+							</button>
+						</div>
 
-                        <div class="tab-pane" id="http-{{item.name | downcase | replace:' ','-'}}" role="tabpanel"
-                             aria-labelledby="http-tab-{{item.name | downcase | replace:' ','-'}}">
-                            {% include jquery.md %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-        {% endfor %}
-    </div>
+						<div class="tab-pane" id="jquery-{{requestId}}" role="tabpanel"
+								 aria-labelledby="jquery-tab-{{requestId}}">
+							{% include jquery.md %}
+							<button class="btn btn-sm copy-request" data-placement="left" data-target="jquery-{{requestId}}"
+											title="Copied!">Copy to
+								Clipboard
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		{% endfor %}
+	</div>
 </div>
 
 <script type="application/javascript">
@@ -122,6 +130,20 @@ layout: default
         };
         $(window).on('hashchange load', function () {
             adjustAnchor();
+        });
+
+        $('.copy-request').tooltip({trigger: "manual"});
+        const clipboard = new Clipboard('.copy-request', {
+            text: function (trigger) {
+                return $(trigger).prev().text().trim();
+            }
+        });
+
+        clipboard.on('success', function (e) {
+            $(e.trigger).tooltip('show');
+            setTimeout(function () {
+                $(e.trigger).tooltip('hide');
+            }, 1000);
         });
     })(jQuery, window);
 </script>

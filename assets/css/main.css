@@ -32,10 +32,11 @@ footer {
 }
 
 .page-content {
-    top:      55px;
-    padding:  0px;
-    height:   calc(100vh - 72px);
-    position: absolute;
+    top:        55px;
+    height:     calc(100vh - 72px);
+    position:   absolute;
+    max-width:  100%;
+    overflow-x: hidden;
 }
 
 .page-content .content {
@@ -43,7 +44,7 @@ footer {
 }
 
 .api-index {
-    top:        55px;
+    top:        0px;
     height:     calc(100vh - 72px);
     position:   sticky;
     background: #F7F7F7;
@@ -186,6 +187,10 @@ span.method[name="DELETE"] {
     background: #FAFAFA;
 }
 
+.request-info .url code.highlighter-rouge {
+    background: transparent;
+}
+
 .request-info .body .content .highlight pre {
     margin: 0px;
 }
@@ -194,6 +199,7 @@ span.method[name="DELETE"] {
     color:         #fff;
     padding:       1rem;
     background:    #303030;
+    overflow-y:    auto;
     border-bottom: 1px solid #505050;
 }
 
@@ -255,22 +261,47 @@ span.method[name="DELETE"] {
     color: #8BC34A;
 }
 
+.request-example .tab-pane:hover .copy-request {
+    display: block;
+}
+
+.copy-request {
+    top:        46px;
+    right:      10px;
+    color:      #fff;
+    display:    none;
+    position:   absolute;
+    font-size:  12px;
+    background: #404040;
+}
+
 @media (max-width: 61.9em) {
     .api-index {
         display: none;
     }
 
     .api-info .col-6 {
-        max-width:    100%;
-        width:        100%;
-        padding-left: 0;
-        flex:         auto;
+        max-width: 100%;
+        width:     100%;
+        flex:      auto;
     }
 
     .api-info {
         flex:      auto;
         width:     100%;
+        max-width: 100%;
+    }
+
+    .about-api img {
         padding:   0px;
         max-width: 100%;
+    }
+
+    .request {
+        padding: 10px;
+    }
+
+    .page-content {
+        padding: 0px;
     }
 }
